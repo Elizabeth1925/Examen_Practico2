@@ -8,6 +8,10 @@ export const modalidades = ['Virtual','Presencial']
 export function fechaLocal(d = new Date()) {
   return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')
 }
+export function horasOcupadas(fecha, lista, excluirId) {
+  if (!fecha) return []
+  return lista.filter(x=>x.id!==excluirId && x.estado==='Confirmada' && x.fecha===fecha).map(x=>x.hora)
+}
 export function validar(r, lista, ahora = new Date()) {
   if (!docentes.some(d=>d.id===r.docente)) return 'Selecciona un docente.'
   if (!modalidades.includes(r.modalidad)) return 'Selecciona una modalidad.'
@@ -15,6 +19,6 @@ export function validar(r, lista, ahora = new Date()) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(r.fecha) || fechaLocal(dia)!==r.fecha || r.fecha<fechaLocal(ahora)) return 'Elige una fecha válida desde hoy.'
   if (!horas.includes(r.hora)) return 'Selecciona un horario.'
   if (new Date(r.fecha+'T'+r.hora)<=ahora) return 'Elige un horario futuro.'
-  if (lista.some(x=>x.id!==r.id && x.estado==='Confirmada' && x.fecha===r.fecha && x.hora===r.hora)) return 'Ya tienes una tutoría en ese horario. Elige otra hora.'
+  if (horasOcupadas(r.fecha, lista, r.id).includes(r.hora)) return 'Ya tienes una tutoría en ese horario. Elige otra hora.'
   return ''
 }
