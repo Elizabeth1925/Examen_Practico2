@@ -1,16 +1,16 @@
 participante,version,tarea,tiempo_segundos,exito_0_1,errores,ayudas,SEQ_1_7,observacion,evidencia
-Andres Tosasa,v1,T1,125,1,2,1,4,"SIMULADO: dudó al escoger modalidad; se representó una aclaración general",evidencias-simuladas.md#sim-p00--piloto
-Andres Tosasa,v1,T2,110,1,3,1,3,"SIMULADO: interpretó mover como arrastrar; se ajustó el criterio interno de cierre",evidencias-simuladas.md#sim-p00--piloto
-Andres Tosasa,v1,T3,50,1,1,0,5,"SIMULADO: esperó una pantalla adicional después de confirmar",evidencias-simuladas.md#sim-p00--piloto
-Karen Molin,v1,T1,96,1,1,0,5,"SIMULADO: revisó dos veces la modalidad antes de continuar",evidencias-simuladas.md#sim-p01--primera-sesion
-Karen Molin,v1,T2,88,1,2,1,4,"SIMULADO: no localizó editar al primer intento; ayuda: revisar las acciones de la tarjeta",evidencias-simuladas.md#sim-p01--primera-sesion
-Karen Molin,v1,T3,42,1,1,0,5,"SIMULADO: buscó el cambio de estado después de confirmar",evidencias-simuladas.md#sim-p01--primera-sesion
-Karen Molin,v2,T1,68,1,0,0,6,"SIMULADO: completó la reserva sin retroceder",evidencias-simuladas.md#sim-p01--primera-sesion
-Karen Molin,v2,T2,54,1,1,0,6,"SIMULADO: comprobó la fecha antes de guardar",evidencias-simuladas.md#sim-p01--primera-sesion
-Karen Molin,v2,T3,31,1,0,0,7,"SIMULADO: identificó inmediatamente el estado cancelado",evidencias-simuladas.md#sim-p01--primera-sesion
-Tomas Solis,v1,T1,112,1,2,1,4,"SIMULADO: omitió inicialmente el horario; ayuda: revisar los campos pendientes",evidencias-simuladas.md#sim-p02--segunda-sesion
-Tomas Solis,v1,T2,105,0,3,1,3,"SIMULADO: creó otra reserva en vez de editar; ayuda: volver a Mis reservas",evidencias-simuladas.md#sim-p02--segunda-sesion
-Tomas Solis,v1,T3,48,1,1,0,5,"SIMULADO: dudó si la cancelación había finalizado",evidencias-simuladas.md#sim-p02--segunda-sesion
-Tomas Solis,v2,T1,73,1,1,0,6,"SIMULADO: corrigió el horario al ver la indicación del campo",evidencias-simuladas.md#sim-p02--segunda-sesion
-Tomas Solis,v2,T2,61,1,1,0,5,"SIMULADO: localizó editar y conservó la fecha correcta",evidencias-simuladas.md#sim-p02--segunda-sesion
-Tomas Solis,v2,T3,34,1,0,0,6,"SIMULADO: confirmó la cancelación sin ayuda",evidencias-simuladas.md#sim-p02--segunda-sesion
+P00,v1,T1,125,1,2,1,4,"SIMULADO: dudó al escoger modalidad; se representó una aclaración general",evidencias-simuladas.md#sim-p00--piloto
+P00,v1,T2,110,1,3,1,3,"SIMULADO: interpretó mover como arrastrar; se ajustó el criterio interno de cierre",evidencias-simuladas.md#sim-p00--piloto
+P00,v1,T3,50,1,1,0,5,"SIMULADO: esperó una pantalla adicional después de confirmar",evidencias-simuladas.md#sim-p00--piloto
+P01,v1,T1,96,1,1,0,5,"SIMULADO: revisó dos veces la modalidad antes de continuar",evidencias-simuladas.md#sim-p01--primera-sesion
+P01,v1,T2,88,1,2,1,4,"SIMULADO: no localizó editar al primer intento; ayuda: revisar las acciones de la tarjeta",evidencias-simuladas.md#sim-p01--primera-sesion
+P01,v1,T3,42,1,1,0,5,"SIMULADO: buscó el cambio de estado después de confirmar",evidencias-simuladas.md#sim-p01--primera-sesion
+P01,v2,T1,68,1,0,0,6,"SIMULADO: completó la reserva sin retroceder",evidencias-simuladas.md#sim-p01--primera-sesion
+P01,v2,T2,54,1,1,0,6,"SIMULADO: comprobó la fecha antes de guardar",evidencias-simuladas.md#sim-p01--primera-sesion
+P01,v2,T3,31,1,0,0,7,"SIMULADO: identificó inmediatamente el estado cancelado",evidencias-simuladas.md#sim-p01--primera-sesion
+P02,v1,T1,112,1,2,1,4,"SIMULADO: omitió inicialmente el horario; ayuda: revisar los campos pendientes",evidencias-simuladas.md#sim-p02--segunda-sesion
+P02,v1,T2,105,0,3,1,3,"SIMULADO: creó otra reserva en vez de editar; ayuda: volver a Mis reservas",evidencias-simuladas.md#sim-p02--segunda-sesion
+P02,v1,T3,48,1,1,0,5,"SIMULADO: dudó si la cancelación había finalizado",evidencias-simuladas.md#sim-p02--segunda-sesion
+P02,v2,T1,73,1,1,0,6,"SIMULADO: corrigió el horario al ver la indicación del campo",evidencias-simuladas.md#sim-p02--segunda-sesion
+P02,v2,T2,61,1,1,0,5,"SIMULADO: localizó editar y conservó la fecha correcta",evidencias-simuladas.md#sim-p02--segunda-sesion
+P02,v2,T3,34,1,0,0,6,"SIMULADO: confirmó la cancelación sin ayuda",evidencias-simuladas.md#sim-p02--segunda-sesion

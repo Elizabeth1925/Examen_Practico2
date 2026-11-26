@@ -19,11 +19,11 @@
 
 **Hoja de métricas.** Completar resultados.csv. Usar éxito 1 o 0, tiempos en segundos y conteos de errores y ayudas. Describir la ayuda concreta en observación. Calcular por versión y tarea: éxitos / intentos, mediana de tiempo, suma de errores, ayudas y mediana de SEQ. Informar el número de participantes. Excluir P00 de las métricas de P01/P02. Guardar evidencia anonimizada solo con permiso.
 
-**Registro simulado del piloto P00 (Andres Tosasa)** · Preparado: 2026-11-26 · Versión: v1 · ¿Qué se representaría?: la expresión «mueve esa tutoría» podría llevar a buscar una acción de arrastre y el momento de detener el cronómetro podría resultar ambiguo al cancelar. · Ajuste propuesto al guion: aclarar al moderador, sin decírselo al participante, que T2 termina al mostrarse una sola reserva activa a las 14:00 y T3 cuando la tarjeta presenta el estado cancelado. · Motivo: uniformar el criterio de medición. · Evidencia: escenario ficticio, pendiente de validación mediante P00 real.
+**Registro simulado del piloto P00** · Preparado: 2026-11-26 · Versión: v1 · ¿Qué se representaría?: la expresión «mueve esa tutoría» podría llevar a buscar una acción de arrastre y el momento de detener el cronómetro podría resultar ambiguo al cancelar. · Ajuste propuesto al guion: aclarar al moderador, sin decírselo al participante, que T2 termina al mostrarse una sola reserva activa a las 14:00 y T3 cuando la tarjeta presenta el estado cancelado. · Motivo: uniformar el criterio de medición. · Evidencia: escenario ficticio, pendiente de validación mediante P00 real.
 
 ## Síntesis del conjunto simulado
 
-Se representaron tres identidades ficticias: Andres Tosasa para P00, Karen Molin para P01 y Tomas Solis para P02. El piloto P00 queda excluido de las métricas.
+Se usaron códigos anonimizados (`P00`, `P01` y `P02`) para representar el formato de las sesiones simuladas. El piloto `P00` queda excluido de las métricas.
 
 | Tarea | v1 | v2 | Lectura provisional |
 |---|---|---|---|
