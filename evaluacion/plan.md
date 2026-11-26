@@ -32,3 +32,7 @@ Se representaron tres identidades ficticias: Andres Tosasa para P00, Karen Molin
 | T3 | 2/2 éxitos; mediana 45 s; 2 errores; 0 ayudas; SEQ 5 | 2/2 éxitos; mediana 32,5 s; 0 errores; 0 ayudas; SEQ 6,5 | El ejemplo representa una confirmación y un estado cancelado más claros. |
 
 Estas diferencias no permiten concluir que v2 sea mejor: pueden deberse al aprendizaje, al tamaño de muestra ficticio o a valores elegidos para ilustrar el formato. La decisión del equipo debe tomarse después de sustituir los datos simulados por sesiones reales y vincular evidencias anonimizadas autorizadas.
+
+## Coordinación simulada con el integrante 4
+
+Se representó la coordinación de la reevaluación manteniendo las mismas consignas, fecha acordada y dispositivo. En v2 se repetirían T1, T2 y T3, comprobando especialmente la indicación de horarios ocupados, la conservación de la hora propia al editar y la lectura de la fecha. Las notas ficticias están reunidas en [evidencias-simuladas.md](evidencias-simuladas.md). Usar las mismas identidades en ambas versiones introduce aprendizaje y se conserva como limitación del ejemplo.
