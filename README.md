@@ -109,7 +109,7 @@ Los demás integrantes sustituyen el archivo y el mensaje por los de su tarea. E
 
 **Participan los integrantes 1 y 2.** Los integrantes 3 y 4 pueden seguir con su trabajo. Háganlo justo después de crear las cuatro ramas y antes de incorporar otros cambios. La línea de control que se debe editar está aquí:
 
-**Revisión del equipo:** pendiente.
+**Revisión del equipo:** aplicación a cargo del integrante 2.
 
 1. **Integrante 1**, en `ux-requisitos`: sustituye únicamente la línea anterior por `**Revisión del equipo:** UX a cargo del integrante 1.`. Guarda, ejecuta `git add README.md`, haz el commit `Asigna la revisión de UX` y sube la rama con `git push -u origin HEAD`.
 2. **Integrante 2**, en `aplicacion`: desde la misma base original, sustituye esa misma línea por `**Revisión del equipo:** aplicación a cargo del integrante 2.`. Guarda, ejecuta `git add README.md`, haz el commit `Asigna la revisión de la aplicación` y sube tu rama. Ambos cambios deben estar confirmados por separado **antes** de actualizar cualquiera de las dos ramas.
