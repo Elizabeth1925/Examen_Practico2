@@ -82,9 +82,17 @@ function formulario() {
     } catch { $('.error').textContent='No se pudieron leer las reservas del navegador.' }
   }
 }
+const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
+function fechaLegible(iso) {
+  const partes = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso))
+  if (!partes) return String(iso)
+  const anio = Number(partes[1]), mes = Number(partes[2]), dia = Number(partes[3])
+  if (mes < 1 || mes > 12 || dia < 1 || dia > 31) return String(iso)
+  return dia+' de '+meses[mes-1]+' de '+anio
+}
 function detalle(r) {
   const d=docente(r.docente)
-  return '<h2>'+d.materia+'</h2><p>'+d.nombre+'</p><p>'+escapar(r.fecha)+' · '+escapar(r.hora)+'<br>'+escapar(r.modalidad)+'</p>'
+  return '<h2>'+d.materia+'</h2><p>'+d.nombre+'</p><p><time datetime="'+escapar(r.fecha)+'">'+escapar(fechaLegible(r.fecha))+'</time> · '+escapar(r.hora)+'<br>'+escapar(r.modalidad)+'</p>'
 }
 function revisar() {
   vista('Revisa tu reserva','<section class="panel">'+detalle(borrador)+'<p class="error" role="alert"></p><div class="acciones">'+boton('guardar',borrador.id?'Guardar cambios':'Confirmar reserva')+boton('volver','Volver a editar','sec')+'</div></section>')
