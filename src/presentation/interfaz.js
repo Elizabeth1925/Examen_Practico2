@@ -1,4 +1,4 @@
-import {docentes,horas,modalidades,fechaLocal,validar} from '../domain/reservas.js'
+import {docentes,horas,modalidades,fechaLocal,horasOcupadas,validar} from '../domain/reservas.js'
 import {agenda} from '../application/agenda.js'
 import {almacen} from '../infrastructure/almacen.js'
 
@@ -28,14 +28,36 @@ function buscar() {
   tarjetas()
 }
 function opciones(lista,actual) {
-  return '<option value="">Selecciona una opción</option>'+lista.map(x=>'<option '+(x===actual?'selected':'')+'>'+x+'</option>').join('')
+  return '<option value="">Selecciona una opción</option>'+lista.map(x=>'<option value="'+escapar(x)+'"'+(x===actual?' selected':'')+'>'+escapar(x)+'</option>').join('')
+}
+function opcionesHora(actual,ocupadas) {
+  return '<option value="">Selecciona una opción</option>'+horas.map(h=>{
+    const ocupada = ocupadas.includes(h)
+    return '<option value="'+h+'"'+(ocupada?' disabled':'')+(!ocupada && h===actual?' selected':'')+'>'+h+(ocupada?' (Ocupado)':'')+'</option>'
+  }).join('')
 }
 function formulario() {
   const d = docente(borrador.docente)
-  vista(borrador.id?'Modificar reserva':'Reservar tutoría','<section class="panel"><h2>'+d.materia+'</h2><p>'+d.nombre+'</p><form novalidate><label>Modalidad<select name="modalidad">'+opciones(modalidades,borrador.modalidad)+'</select></label><label>Fecha<input type="date" name="fecha" min="'+fechaLocal()+'" value="'+escapar(borrador.fecha)+'"></label><label>Horario<select name="hora">'+opciones(horas,borrador.hora)+'</select></label><p class="error" role="alert"></p><div class="acciones"><button>Revisar reserva</button>'+boton('buscar','Volver a docentes','sec')+'</div></form></section>')
+  vista(borrador.id?'Modificar reserva':'Reservar tutoría','<section class="panel"><h2>'+d.materia+'</h2><p>'+d.nombre+'</p><form novalidate><label>Modalidad<select name="modalidad">'+opciones(modalidades,borrador.modalidad)+'</select></label><label>Fecha<input type="date" name="fecha" min="'+fechaLocal()+'" value="'+escapar(borrador.fecha)+'"></label><label>Horario<select name="hora">'+opcionesHora(borrador.hora,[])+'</select></label><p id="aviso-horas" class="ayuda" role="status"></p><p class="error" role="alert"></p><div class="acciones"><button>Revisar reserva</button>'+boton('buscar','Volver a docentes','sec')+'</div></form></section>')
   const form=$('form')
-  const actualizar=()=>Object.assign(borrador,Object.fromEntries(new FormData(form)))
+  const actualizarHoras=()=>{
+    let ocupadas=[]
+    try { ocupadas=horasOcupadas(borrador.fecha,app.listar(),borrador.id) } catch {}
+    if (ocupadas.includes(borrador.hora)) borrador.hora=''
+    form.elements.hora.innerHTML=opcionesHora(borrador.hora,ocupadas)
+    const bloqueadas=horas.filter(h=>ocupadas.includes(h))
+    $('#aviso-horas').textContent = !bloqueadas.length ? ''
+      : bloqueadas.length===horas.length ? 'Todos los horarios de esta fecha ya están ocupados por tus reservas confirmadas. Elige otra fecha.'
+      : 'Horarios ocupados en esta fecha por reservas confirmadas: '+bloqueadas.join(', ')+'.'
+  }
+  const actualizar=()=>{
+    const fechaAnterior=borrador.fecha
+    Object.assign(borrador,Object.fromEntries(new FormData(form)))
+    if (borrador.fecha!==fechaAnterior) actualizarHoras()
+  }
+  actualizarHoras()
   form.oninput=actualizar
+  form.onchange=actualizar
   form.onsubmit=e=>{
     e.preventDefault()
     actualizar()
@@ -60,9 +82,17 @@ function formulario() {
     } catch { $('.error').textContent='No se pudieron leer las reservas del navegador.' }
   }
 }
+const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']
+function fechaLegible(iso) {
+  const partes = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso))
+  if (!partes) return String(iso)
+  const anio = Number(partes[1]), mes = Number(partes[2]), dia = Number(partes[3])
+  if (mes < 1 || mes > 12 || dia < 1 || dia > 31) return String(iso)
+  return dia+' de '+meses[mes-1]+' de '+anio
+}
 function detalle(r) {
   const d=docente(r.docente)
-  return '<h2>'+d.materia+'</h2><p>'+d.nombre+'</p><p>'+escapar(r.fecha)+' · '+escapar(r.hora)+'<br>'+escapar(r.modalidad)+'</p>'
+  return '<h2>'+d.materia+'</h2><p>'+d.nombre+'</p><p><time datetime="'+escapar(r.fecha)+'">'+escapar(fechaLegible(r.fecha))+'</time> · '+escapar(r.hora)+'<br>'+escapar(r.modalidad)+'</p>'
 }
 function revisar() {
   vista('Revisa tu reserva','<section class="panel">'+detalle(borrador)+'<p class="error" role="alert"></p><div class="acciones">'+boton('guardar',borrador.id?'Guardar cambios':'Confirmar reserva')+boton('volver','Volver a editar','sec')+'</div></section>')
