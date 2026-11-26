@@ -1,1 +1,76 @@
-<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tres wireframes · Tutoría UX</title><style>*{box-sizing:border-box}body{font:16px/1.5 system-ui;margin:5vw;color:#303030}main{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}article{border:2px solid;padding:1rem}header{border-bottom:1px solid;padding-bottom:.5rem}h2{font-size:1.3rem}figure{margin:1rem 0;padding:.8rem;border:1px dashed}b,small{display:block}.field,.action{display:block;border:1px solid;padding:.35rem;margin:.5rem 0}.action{background:#eaeaea;text-align:center}</style><h1>Wireframes del flujo principal</h1><main><article><header>Buscar tutoría | Mis reservas</header><h2>Buscar tutoría</h2>Docente o asignatura<span class="field">Buscar…</span><small>Número de resultados</small><figure><b>Nombre del docente</b>Asignatura<span class="action">Elegir docente</span></figure></article><article><header>Buscar tutoría | Mis reservas</header><h2>Reservar tutoría</h2><figure><b>Asignatura y docente</b>Modalidad<span class="field">Seleccionar ▾</span>Fecha<span class="field">dd/mm/aaaa</span>Horario<span class="field">Seleccionar ▾</span><small>Mensaje si falta un dato</small><span class="action">Revisar reserva</span></figure></article><article><header>Buscar tutoría | Mis reservas</header><h2>Mis reservas</h2><small>Confirmación de la última acción</small><figure><b>Estado · Confirmada</b>Asignatura y docente<br>Fecha · Hora · Modalidad<span class="action">Modificar</span><span class="action">Cancelar</span></figure></article></main></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tres wireframes · Tutoría UX</title>
+  <style>
+    *{box-sizing:border-box}
+    body{font:16px/1.5 system-ui;margin:5vw;color:#303030}
+    main{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+    article{border:2px solid;padding:1rem}
+    header{border-bottom:1px solid;padding-bottom:.5rem}
+    h2{font-size:1.3rem}
+    figure{margin:1rem 0;padding:.8rem;border:1px dashed}
+    b,small{display:block}
+    .field,.action{display:block;border:1px solid;padding:.35rem;margin:.45rem 0}
+    .action{background:#eaeaea;text-align:center}
+    .action.sec{background:#fff}
+    .kept{border-style:solid;background:#f7f7f7}
+    .tag{display:inline-block;font-size:.78rem;border:1px solid #666;padding:0 .35rem;margin-left:.35rem;background:#fff}
+    .field.invalid{border:2px solid #8a291d;outline:3px solid #a64e00;outline-offset:2px;background:#fff5f4}
+    .error-msg{color:#8a291d;font-weight:700;margin:.4rem 0 .6rem}
+    .note{margin-top:.75rem;padding:.5rem;border-left:3px solid #303030;background:#f5f5f5;font-size:.86rem}
+  </style>
+</head>
+<body>
+  <h1>Wireframes del flujo principal</h1>
+  <main>
+    <article>
+      <header>Buscar tutoría | Mis reservas</header>
+      <h2>Buscar tutoría</h2>
+      Docente o asignatura
+      <span class="field">Buscar…</span>
+      <small>Número de resultados</small>
+      <figure>
+        <b>Nombre del docente</b>
+        Asignatura
+        <span class="action">Elegir docente</span>
+      </figure>
+    </article>
+
+    <article>
+      <header>Buscar tutoría | Mis reservas</header>
+      <h2>Reservar tutoría</h2>
+      <figure>
+        <b>Bases de Datos · Diego Vega <span class="tag">Conservado</span></b>
+        Modalidad <span class="tag">Conservado</span>
+        <span class="field kept">Virtual ▾</span>
+        Fecha <span class="tag">Conservado</span>
+        <span class="field kept">06/05/2099</span>
+        Horario <span class="tag">Error + foco</span>
+        <span class="field invalid" aria-invalid="true">Selecciona una opción ▾</span>
+        <small class="error-msg" role="alert">Selecciona un horario.</small>
+        <span class="action">Revisar reserva</span>
+        <span class="action sec">Volver a docentes</span>
+        <small class="note">
+          <strong>Recuperación ante horario vacío:</strong> se resalta el campo <em>Horario</em> (borde de error y foco automático) con su mensaje asociado, mientras se conservan la asignatura, el docente, la modalidad y la fecha ya elegidos.
+        </small>
+      </figure>
+    </article>
+
+    <article>
+      <header>Buscar tutoría | Mis reservas</header>
+      <h2>Mis reservas</h2>
+      <small>Confirmación de la última acción</small>
+      <figure>
+        <b>Estado · Confirmada</b>
+        Asignatura y docente<br>
+        Fecha · Hora · Modalidad
+        <span class="action">Modificar</span>
+        <span class="action">Cancelar</span>
+      </figure>
+    </article>
+  </main>
+</body>
+</html>
