@@ -2,7 +2,7 @@
 Aplicación de gestión de tutorías para la práctica integradora de Interacción Humano-Computador. Permite buscar docentes y asignaturas, escoger modalidad, fecha y horario, revisar, reservar, modificar y cancelar. Implementación de referencia preparada con asistencia de IA. Los datos del catálogo son ficticios.
 
 ## Ejecutar
-1. Descomprime el proyecto en una carpeta. Usa Node.js 22 o posterior; verificado con Node 24. No requiere instalar paquetes para la aplicación ni para las seis pruebas funcionales.
+1. Descomprime el proyecto en una carpeta. Usa Node.js 22 o posterior; verificado con Node 24. No requiere instalar paquetes para la aplicación ni para las ocho pruebas funcionales.
 2. Abre una terminal en la carpeta que contiene este README y ejecuta `node servidor.js`. Mantén esa terminal abierta.
 3. Abre [la aplicación](http://127.0.0.1:4173/), el [prototipo navegable](http://127.0.0.1:4173/ux/prototipo/) o la [versión inicial para evaluación](http://127.0.0.1:4173/evaluacion/v1/). Detén el servidor con Ctrl+C.
 4. En otra terminal ejecuta `node --test tests/reservas.test.js`. Para repetir el recorrido de navegador, consulta [las pruebas](tests/README.md).
@@ -21,10 +21,10 @@ La aplicación guarda reservas en el navegador y conserva el borrador durante la
 - [Heurísticas, recorrido cognitivo, accesibilidad, cuatro hallazgos y backlog](evaluacion/inspeccion.md)
 - [Capturas antes](evidencias/antes/) · [Capturas después](evidencias/despues/) · [Vista de escritorio](evidencias/despues/escritorio.png)
 
-**Estado de entrega.** Persona 4 amplió `tests/interfaz.cjs` para comprobar la disponibilidad de horarios al crear y editar, y la fecha legible con el valor ISO conservado. `node --check` confirmó la sintaxis del script; el recorrido completo de interfaz debe ejecutarse con Edge/Playwright después de integrar las correcciones del [PR #2](https://github.com/Elizabeth1925/Examen_Practico2/pull/2). El `resultados.csv` publicado en `Sebastian_Vaca` contiene observaciones marcadas `SIMULADO`; no se consideran resultados reales de P00, P01 o P02. La comparación v1/v2 con participantes y la reevaluación final quedan pendientes de publicar las sesiones reales anonimizadas y repetir las tareas en v2.
+**Estado de entrega.** Integrados en `main` los aportes de los cuatro integrantes (UX y requisitos, correcciones H3/H4 y resolución del conflicto, guion/registro y validación automatizada). Verificados sobre `main`: 8/8 pruebas unitarias en [tests/reservas.test.js](tests/reservas.test.js) y recorrido completo en Microsoft Edge (`node tests/interfaz.cjs antes` y `node tests/interfaz.cjs despues`) comprobando H1–H4, vista móvil (`390×844`), vista de escritorio (`1280×800`) y aislamiento de `/ux/prototipo/`, con capturas actualizadas en [evidencias/despues/](evidencias/despues/). **Pendiente con personas reales:** las filas anonimizadas (`P00`, `P01`, `P02`) de [evaluacion/resultados.csv](evaluacion/resultados.csv) están marcadas como `SIMULADO` y deben sustituirse por sesiones reales con participantes ajenos al desarrollo para cerrar la evaluación empírica v1/v2.
 
 ## Limitaciones
-El catálogo y los turnos son de demostración. La agenda representa un solo estudiante en un navegador. Carece de autenticación, sincronización entre dispositivos y calendario institucional. El borrador vive en memoria y se pierde al recargar. La persistencia de la app depende de que el navegador permita almacenamiento local. Para las sesiones, usa un perfil limpio o una ventana privada independiente por participante.
+El catálogo y los turnos son de demostración. La agenda representa un solo estudiante en un navegador. Carece de autenticación, sincronización entre dispositivos y calendario institucional. El borrador vive en memoria y se pierde al recargar. La persistencia de la app depende de que el navegador permita almacenamiento local. Para las sesiones, usa un perfil limpio o una ventana privada independiente por participante. En esta entrega la validación ejecutada es técnica (pruebas unitarias y recorrido en Edge); los registros de [evaluacion/resultados.csv](evaluacion/resultados.csv) son simulados y repetir tareas con las mismas personas entre v1 y v2 introduce efecto de aprendizaje.
 
 ## Guía de trabajo de los cuatro integrantes
 
