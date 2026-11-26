@@ -32,12 +32,29 @@ const path=require('node:path')
     await btn('Confirmar reserva').click()
     await page.reload()
     await btn('Mis reservas').click()
+    if(despues){
+      const fecha=page.locator('article time')
+      assert.equal(await fecha.innerText(),'6 de mayo de 2099')
+      assert.equal(await fecha.getAttribute('datetime'),'2099-05-06')
+    }
     await btn('Modificar').click()
+    if(despues) assert.equal(await page.locator('[name=hora] option[value="09:00"]').isEnabled(),true)
     await page.locator('[name=hora]').selectOption('14:00')
     await btn('Revisar reserva').click()
     await btn('Guardar cambios').click()
     assert.equal(await page.locator('article').count(),1)
     assert.match(await page.locator('article').innerText(),/14:00/)
+    if(despues){
+      await btn('Buscar tutoría').click()
+      await page.getByLabel('Docente o asignatura').fill('bases')
+      await page.locator('article button').click()
+      await page.getByLabel('Modalidad').selectOption('Virtual')
+      await page.getByLabel('Fecha',{exact:true}).fill('2099-05-06')
+      const ocupada=page.locator('[name=hora] option[value="14:00"]')
+      assert.equal(await ocupada.isEnabled(),false)
+      assert.match(await page.locator('#aviso-horas').innerText(),/14:00/)
+      await btn('Mis reservas').click()
+    }
     await btn('Cancelar').click()
     await btn('Conservar reserva').click()
     await btn('Cancelar').click()
@@ -55,7 +72,3 @@ const path=require('node:path')
     console.log('Flujo de interfaz completo, almacenamiento, retorno y prototipo verificados.',etapa)
   } finally {await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1})
-
-
-
-
