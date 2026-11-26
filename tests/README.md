@@ -1,6 +1,6 @@
 # Verificación funcional
 
-Ejecuta `node --test tests/reservas.test.js` desde la raíz. Se comprobaron seis casos de registro y lectura persistente, edición sin duplicados, conflicto con conservación de datos, cancelación, validación de campos y validación de hora pasada. Resultado observado: seis aprobados.
+Ejecuta `node --test tests/reservas.test.js` desde la raíz. Se comprobaron ocho casos: registro y lectura persistente, edición sin duplicados, conflicto con conservación de datos, cancelación, validación de campos, validación de hora pasada y cálculo de horas ocupadas al crear, editar y cancelar. Resultado observado: ocho aprobados.
 
 Para repetir las comprobaciones adicionales de interfaz en un equipo Windows con Microsoft Edge, inicia el servidor y ejecuta en otra terminal:
 ```sh
